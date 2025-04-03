@@ -69,8 +69,13 @@ def count_duplicates(values):
     Outputs:
         - None (Output is printed to STDOUT)
     """
-    duplicates = {}
-    # TODO: Use a dictionary and a for loop.
+    duplicates = {x: 1 for x in values}
+    for i in range(0,len(values) - 1):
+      dups = 0
+      for j in range(i + 1,len(values)):
+        if values[i] == values[j]:
+          dups = dups + 1
+      duplicates[values[i]] = duplicates[values[i]] + dups
     print(sorted(duplicates.items()))
 
 
