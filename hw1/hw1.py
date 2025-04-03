@@ -4,7 +4,7 @@
 
 from sys import argv
 from random import seed, randint
-
+import re
 
 def main():
     # Do not edit main.
@@ -96,8 +96,12 @@ def print_line_after(text, line, after):
     Outputs:
         - None (Output is printed to STDOUT)
     """
-    # TODO: Use the split function.
-    pass
+    if (line > 0):
+      splitted = text.split('\n')
+      print(splitted[line][after:])
+    else:
+      print(text[after:])
+
 
 
 if __name__ == "__main__":
