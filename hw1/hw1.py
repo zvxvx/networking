@@ -3,7 +3,6 @@
 
 from sys import argv
 from random import seed, randint
-import re
 
 
 def main():
@@ -68,13 +67,12 @@ def count_duplicates(values):
     Outputs:
         - None (Output is printed to STDOUT)
     """
-    duplicates = {x: 1 for x in values}
-    for i in range(0, len(values) - 1):
-        dups = 0
-        for j in range(i + 1, len(values)):
-            if values[i] == values[j]:
-                dups = dups + 1
-        duplicates[values[i]] = duplicates[values[i]] + dups
+    duplicates = {}
+    for value in values:
+        if value in duplicates:
+            duplicates[value] += 1
+        else:
+            duplicates[value] = 1  
     print(sorted(duplicates.items()))
 
 
