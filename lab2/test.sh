@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/bash
 
 echo "TEST 1"
 echo "Creating Cambridge, MA graph."

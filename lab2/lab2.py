@@ -56,12 +56,13 @@ def main():
     # parse json
     js = loads(final_response.text)
 
+    # get temps from the last 4 days
     tempList = []
-    for i in range(12):
+    for i in range(96):
         tempList.append(js["properties"]["periods"][i]["temperature"])
 
     # print the list to check against graph
-    print(f"Weather data: {tempList}")
+    # print(f"Weather data: {tempList}")
 
     # do actual plotting
     plot_temps(tempList)

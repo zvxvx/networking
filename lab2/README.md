@@ -14,7 +14,7 @@
 
 ## Program description
 
-This program creates a graph showing the temperatures from the last 12 hours based on the latitude, longitude inputted in the command line.
+This program creates a graph showing the temperatures from the last 4 days based on the latitude, longitude inputted in the command line.
 
 ## Questions
 
@@ -24,18 +24,18 @@ This program creates a graph showing the temperatures from the last 12 hours bas
 
 2. What is a RESTful API?
 
-- It is a style used for making networking applications. One can use various HTTP methods in order to utilize online resouces such as GET, POST, PUT, PATCH, and DELETE.
+- It is a style used for making networking applications. One can use various HTTP methods to utilize online resources such as GET, POST, PUT, PATCH, and DELETE.
 - Were the APIs we used RESTful?
-  -- Yes, they were. We used a couple of get requests from select url endpoints to get the data we needed.
+  -- Yes, they were. We used a couple of GET requests from select URL endpoints to get the data we needed.
 
 3. What is JSON?
 
-- JSON is a style of object notation for javascript; however, it can be utilized by any language that can access REST APIs. It provides data in string format so it can be easily consumed by programs in order to use the data further.
+- JSON is a style of object notation for JavaScript; however, it can be utilized by any language that can access REST APIs. It provides data in string format so it can be easily consumed by programs to use the data further.
 - Did these APIs use JSON?
-  -- These APIs provided us with JSON in response to the get requests.
+  -- These APIs provided us with JSON in response to the GET requests.
 
 4. What is Bash?
 
-- Bash processes commands from the command line and also process these commands through a script file.
+- Bash processes commands from the command line and can also process these commands through a script file.
 - Have you ever used Bash?
-  -- Yes, even though the syntax is annoying.
+  -- Yes, even though the syntax can be annoying at times.
