@@ -36,7 +36,7 @@ def main():
 
     # sys.argv[1] gives us the command line input
     # sys.argv[0] is the name of the python file
-    print(weather_s + argv[1])
+    # print(weather_s + argv[1])
 
     # use the commandline input and the weather_s to make API call
     response = get(weather_s + argv[1])
@@ -48,7 +48,7 @@ def main():
     forecast_URL = js["properties"]["forecastHourly"]
 
     # print link that we use for next API call
-    print(forecast_URL)
+    # print(forecast_URL)
 
     # call the API again to get theforecast
     final_response = get(forecast_URL)
@@ -57,11 +57,11 @@ def main():
     js = loads(final_response.text)
 
     tempList = []
-    for i in range(7):
+    for i in range(12):
         tempList.append(js["properties"]["periods"][i]["temperature"])
 
     # print the list to check against graph
-    print(tempList)
+    print(f"Weather data: {tempList}")
 
     # do actual plotting
     plot_temps(tempList)
