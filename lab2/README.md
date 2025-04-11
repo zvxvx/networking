@@ -1,6 +1,6 @@
 # lab2
 
-## Completed by Greg Pappas
+### Completed by Greg Pappas
 
 ## Usage:
 
