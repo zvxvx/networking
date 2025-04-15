@@ -31,8 +31,12 @@ def main():
     # understanding the code, and then commenting the code back
     # out. The code is, largely, step 4.
 
+    try:
     # Use cl argument to get ip
-    ip = gethostbyname(argv[1])
+        ip = gethostbyname(argv[1])
+    except:        
+        print(f"Error with domain name. May not exist.")
+        exit()
 
     # generate output from running bash command in python.
     s, o = getstatusoutput(f"whois {ip}")
@@ -80,9 +84,10 @@ def main():
     # some URLs do not have weather data available.
     # so an exception is thrown.
     if js["result"]["addressMatches"] == []:
-        raise Exception(
+        print(
             "Domain does not provide sufficent data to get weather information. Try a different domain."
         )
+        exit()
     x = js["result"]["addressMatches"][0]["coordinates"]["x"]
     y = js["result"]["addressMatches"][0]["coordinates"]["y"]
 
