@@ -4,17 +4,17 @@
 
 ## Usage:
 
-- ./lab2.py lat,lon
+- ./lab2.py domain-url
 
 ## Examples:
 
-- ./lab2.py 42.365,-71.091
-- ./lab2.py 47.608,-122.668
-- ./lab2.py 35.671,-106.167
+- ./lab2.py google.com
+- ./lab2.py mit.edu
+- ./lab2.py ewu.edu
 
 ## Program description
 
-This program creates a graph showing the temperatures from the last 4 days based on the latitude, longitude inputted in the command line.
+This program creates a graph showing the temperatures from the last 4 days based on the domain name inputted in the command line.
 
 ## Questions
 
