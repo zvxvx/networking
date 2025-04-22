@@ -33,18 +33,18 @@ This program provides three endpoint API calls via a flask server.
 ## Questions
 
 1. Identify the following in the URL: http://localhost:5000/weather/google.com
-   • Domain: google
-   • Path: /weather/google.com
-   • Port: 5000
-   • Protocol: http
+-  Domain: google
+-  Path: /weather/google.com
+-  Port: 5000
+-  Protocol: http
 
 2. Identify the following in the URL: https://translate.google.com/
-   • Domain: google
-   • Subdomain: translate
-   • TLD: .com
-   • Path: /
-   • Protocol: https
-   • Port: 443
+- Domain: google
+- Subdomain: translate
+- TLD: .com
+- Path: /
+- Protocol: https
+- Port: 443
 
 3. What is a Python decorator?
 
