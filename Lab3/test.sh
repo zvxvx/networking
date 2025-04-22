@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/bash
 
 echo "TEST 1"
 curl http://127.0.0.1:5000/address/liminal.cafe
