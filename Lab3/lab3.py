@@ -90,9 +90,7 @@ def range(domain):
 
     for line in splitted:
         if line.startswith("NetRange"):
-            netRange = (
-                f"Network range for {domain} is {line.partition("NetRange")[2][1:].strip()}\n"
-            )
+            netRange = f"Network range for {domain} is {line.partition('NetRange')[2][1:].strip()}\n"
 
     rangeCache.update({domain: f"Cached: {netRange}"})
     return netRange
