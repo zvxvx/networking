@@ -8,11 +8,9 @@ from urllib.parse import urlparse
 flag = argv[1]
 port = int(argv[2])
 domain = argv[3]
-parsedInput = urlparse(f"http://{domain}/")
-scheme = parsedInput.scheme  # http
+parsedInput = urlparse(domain)
 netloc = parsedInput.netloc  # example.com
 path = parsedInput.path  # /hello/ from example.com/hello
-# print(scheme, netloc, path)
 getRequest = f"GET {path} HTTP/1.1\r\nHost: {netloc}\r\nConnection: close\r\n\r\n"
 
 clientSocket = socket(AF_INET, SOCK_STREAM)
@@ -20,16 +18,17 @@ clientSocket.connect((netloc, port))
 clientSocket.send(getRequest.encode())
 
 res = b""
-
 while True:
     data = clientSocket.recv(1024)
     if not data:
         break
     res += data
 
+# split the header from the body.
 if b"\r\n\r\n" in res:
     h, b = res.split(b"\r\n\r\n", 1)
 
+# print or save depending on flag
 if flag == "-p":
     # print output
     print(b.decode())
