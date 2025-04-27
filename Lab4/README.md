@@ -17,7 +17,7 @@ None needed. Should work as intended as long as python 3 is installed.
 
 ### port
 
-- Must be an integer value. This program works specifically for the http 1.1 protocol, so any port running the http protocol can be used. Any https protocol port used is likely to have the connection reset by peer.
+- Must be an integer value. This program works specifically for the HTTP\1.1 protocol, so any port running the HTTP protocol can be used. Any HTTPS protocol port used is likely to have the connection reset by peer.
 
 ### domain
 
@@ -36,7 +36,7 @@ Must have http:// prepended to the actual domain and have / appended to the end 
 
 ## Program description
 
-This program performs similarly to curl. Running the program will print out or save the contents of the webpage to a file of the selected domain running on http.
+This program performs similarly to curl and wget. Running the program will print out or save the contents of the webpage to a file of the selected domain running on HTTP.
 
 ## Questions
 
