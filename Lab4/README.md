@@ -8,7 +8,7 @@ None needed. Should work as intended as long as python 3 is installed.
 
 ## Usage:
 
-- `python3 lab4.py <flag> <port> http://<domain>/`
+- `python3 lab4.py <flag> <port> <domain>`
 
 ### flags
 
