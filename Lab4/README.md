@@ -36,7 +36,7 @@ Must have http:// prepended to the actual domain and have / appended to the end 
 
 ## Program description
 
-This program performs similarly to curl and wget. Running the program will print out or save the contents of the webpage to a file of the selected domain running on HTTP.
+This program performs similarly to curl. Running the program will print out or save the contents of the webpage to a file of the selected domain running on HTTP.
 
 ## Questions
 
