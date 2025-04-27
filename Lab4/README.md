@@ -8,8 +8,6 @@
 
 ## Usage:
 
-#### Run the following in the terminal.
-
 - `python3 lab4.py <flag> <port> http://<domain>/`
 
 ### flags
