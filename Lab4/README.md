@@ -4,7 +4,7 @@
 
 ## Setup
 
-#### None needed. Should work as intended as long as python 3 is installed.
+None needed. Should work as intended as long as python 3 is installed.
 
 ## Usage:
 
