@@ -1,55 +1,65 @@
-# lab3
+# lab4
 
 ### Completed by Greg Pappas
 
 ## Setup
 
-#### Run the following in the terminal.
-
-- `python3 flask_example.py`
+#### None needed. Should work as intended as long as python 3 is installed.
 
 ## Usage:
 
 #### Run the following in the terminal.
 
-- `curl http://127.0.0.1:5000/<endpoint>/<domain>`
+- `python3 lab4.py <flag> <port> http://<domain>/`
+
+### flags
+
+- `-p` sends results to stdout.
+- `-f` sends results to the file http_output.txt
+
+### port
+
+- Must be an integer value. This program works specifically for the http 1.1 protocol, so any port running the http protocol can be used. Any https protocol port used is likely to have the connection reset by peer.
+
+### domain
+
+Must have http:// prepended to the actual domain and have / appended to the end of the domain. If not added, the program will tell you to add them.
+
+- Example: `python3 lab4.py -p 80 httpforever.com` will _not_ work.
+- However, `python3 lab4.py -p 80 http://httpforever.com/` _will_ work
 
 ## Examples:
 
 #### Run the following in the terminal.
 
-- `curl http://127.0.0.1:5000/address/google.com`
-- `curl http://127.0.0.1:5000/range/google.com`
-- `curl http://127.0.0.1:5000/weather/google.com`
+- `python3 lab4.py -p 80 http://httpforever.com/`
+- `python3 lab4.py -f 80 http://httpforever.com/`
+- `python3 lab4.py -p 80 http://httpforever.com/login/`
 
 ## Program description
 
-This program provides three endpoint API calls via a flask server.
-
-- **Address**, which provides the physical location of the IP address belonging to the domain name.
-- **Range**, which lists the IP address range of the domain name.
-- **Weather**, which provides detailed weather of the current forecast where the IP address is physically located.
+This program performs similarly to curl and wget. Running the program will print out or save the contents of the webpage to a file of the selected domain running on http.
 
 ## Questions
 
-1. Identify the following in the URL: http://localhost:5000/weather/google.com
--  Domain: google
--  Path: /weather/google.com
--  Port: 5000
--  Protocol: http
+1. Why did you have to encode() your request and decode() the response(s)?
+   What do these functions do?
 
-2. Identify the following in the URL: https://translate.google.com/
-- Domain: google
-- Subdomain: translate
-- TLD: .com
-- Path: /
-- Protocol: https
-- Port: 443
+- Encoding and decoding is necessary with raw sockets for data transmission because it deals with raw bytes, and this is because of the low level nature of working with raw sockets.
+- Encoding allows us to use convert the message to bytes with utf-8, unless otherwise specified.
+- Decoding allows us to convert the bytes back into a string. Without these two functions, we'd have a _very_ hard time making use of the data sent and received.
 
-3. What is a Python decorator?
+2. What changes would you have to make to create a UDP socket?
 
-- It is a function that takes a function in as an argument to add additional functionality without modifying the function used as an argument.
+- `clientSocket = socket(AF_INET, SOCK_STREAM)` would need to be changed to `clientSocket = socket(AF_INET, SOCK_DGRAM)`
+- `clientSocket.connect((netloc, port))` and `clientSocket.send(getRequest.encode())` would be replaced with `clientSocket.sendto(getRequest.encode(), (netloc, port))`
+- `clientSocket.recv(1024)` would be replaced with `clientSocket.recvfrom(1024)`
 
-4. Is there any problem with your cache implementation? Would your cache implementation work in production?
+3. If you wanted to create a TCP server, what would you have to change?
 
-- It would work, but in production, it is standard to have cache expire after a certain period to update potentially state results. My implementation does not have cache that expires.
+- If it was previously UDP, do the reverse of above.
+
+4. Can your TCP client create or process HTTPS traffic? What happens if
+   you send a request to port 443?
+
+- This program does not support the processing of HTTPS traffic. It is programmed to handle HTTP\1.1 requests. The connection will be reset by peer if attempted. In this program 443 specifically will be rejected.
