@@ -4,7 +4,7 @@
 
 ## Setup
 
-Users will need to install (https://scapy.net/)[scapy] in order to use the program. To capture the traffic sent by the program, the user will also need to install tcpdump and either use tcpdump to read the .pcap file or wireshark. To capture the data appropriately, iptables will also need to be installed and used.
+Users will need to install (scapy)[https://scapy.net/] in order to use the program. To capture the traffic sent by the program, the user will also need to install tcpdump and either use tcpdump to read the .pcap file or wireshark. To capture the data appropriately, iptables will also need to be installed and used.
 
 ## Usage:
 
