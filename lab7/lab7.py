@@ -6,7 +6,17 @@ from sys import argv
 from subprocess import getstatusoutput
 
 domain = argv[1]
+if domain.startswith("https://") or domain.startswith("http://"):
+    print(
+        "Cannot resolve domain with https:// or http:// prepended to domain. Remove it and try again."
+    )
+    exit(1)
+if domain.endswith("/"):
+    print("Cannot resolve domain with / appended to domain. Remove it and try again.")
+    exit(1)
+
 max_hops = int(argv[2])
+
 as_nums = []
 as_str = ""
 
@@ -25,11 +35,14 @@ except:
 route = f"route to {domain} ({ip_add}), {max_hops} hops max"
 print(route)
 
-
 for i in range(1, max_hops + 1):
     ip.ttl = i
     packet = ip / tcp
-    response = sr1(packet, verbose=0, timeout=3)
+    try:
+        response = sr1(packet, verbose=0, timeout=3)
+    except PermissionError:
+        print("Must run command with sudo!")
+        exit(1)
 
     if response is None:
         print(f"{i} - * * *")
@@ -48,6 +61,7 @@ for i in range(1, max_hops + 1):
 
         if response.src == ip_add:
             break
+
 
 for i in range(len(as_nums)):
     as_str += f"AS{as_nums[i]} -> "
